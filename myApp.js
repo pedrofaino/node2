@@ -8,4 +8,7 @@ app.get('/',
         res.sendFile(absolutePath)
     }
 )
+
+app.use('/public',express.static())
+
 module.exports = app;
