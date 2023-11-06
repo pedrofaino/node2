@@ -9,8 +9,9 @@ app.get('/',
         res.sendFile(absolutePath)
     }
 )
-app.get('/json', res.json({"message":"Hello json"}))
-
+app.get('/json', function (req, res) {
+    res.json({ "message": "Hello json" })
+})
 
 
 module.exports = app;
