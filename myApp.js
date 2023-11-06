@@ -9,9 +9,7 @@ app.get('/',
         res.sendFile(absolutePath)
     }
 )
-app.get('/json', function (res, req) {
-    res.json({ 'message': "Hello Json" })
-})
+app.get('/json', res.json({"message":"Hello json"}))
 
 
 
