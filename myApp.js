@@ -1,10 +1,11 @@
 let express = require('express');
 let app = express();
 
+const absolutePath = __dirname + '/views/index.html'
 
 app.get('/',
     function (req, res) {
-        res.sendFile('C:\Users\pedro\OneDrive\Escritorio\node cerification freecode\boilerplate-express\views\index.html')
+        res.sendFile(absolutePath)
     }
 )
 module.exports = app;
