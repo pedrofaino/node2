@@ -50,4 +50,10 @@ app.get('/name', function(req,res){
     res.json({'name': `${firstname} ${lastname}`})
 })
 
+app.post('/name', function(req, res){
+    const name = req.body.first
+    const last = req.body.last
+    res.json({'name':`${name} ${last}`})
+})
+
 module.exports = app;
