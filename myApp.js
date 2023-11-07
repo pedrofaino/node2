@@ -4,6 +4,10 @@ let app = express();
 
 const absolutePath = __dirname + '/views/index.html'
 const path = __dirname + '/public'
+app.use(function(req,res,next){
+    console.log(`${req.method} ${req.path} - ${req.id}`)
+    next()
+})
 app.use('/public', express.static(path))
 app.get('/',
     function (req, res) {
