@@ -23,7 +23,7 @@ app.get('/now', function (req, res, next) {
     next();
 },
     function (req, res) {
-        res.json({'time':req.time});
+        res.json({ 'time': req.time });
     }
 )
 
@@ -36,5 +36,9 @@ app.get('/json', function (req, res) {
     }
 })
 
+app.get('/:word/echo', function (req, res) {
+    const word = req.params.word
+    res.json({ 'echo': word })
+})
 
 module.exports = app;
