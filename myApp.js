@@ -41,4 +41,10 @@ app.get('/:word/echo', function (req, res) {
     res.json({ 'echo': word })
 })
 
+app.get('/name', function(req,res){
+    const firstname = req.query.first
+    const lastname = req.query.last
+    res.json({'name': `${firstname} ${lastname}`})
+})
+
 module.exports = app;
