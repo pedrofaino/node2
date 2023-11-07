@@ -4,11 +4,18 @@ let app = express();
 
 const absolutePath = __dirname + '/views/index.html'
 const path = __dirname + '/public'
-app.use(function(req,res,next){
+app.use(function (req, res, next) {
     console.log(`${req.method} ${req.path} - ${req.ip}`)
     next()
 })
 app.use('/public', express.static(path))
+app.get('/use',
+    function (res,req,next) {
+        req.time = new Date().toString();
+        next()
+    }, function (res,req) {
+        res.json({"time":req.time})
+    })
 app.get('/',
     function (req, res) {
         res.sendFile(absolutePath)
@@ -16,9 +23,9 @@ app.get('/',
 )
 app.get('/json', function (req, res) {
     const message = "Hello json"
-    if(process.env.MESSAGE_STYLE === 'uppercase'){
+    if (process.env.MESSAGE_STYLE === 'uppercase') {
         res.json({ "message": message.toUpperCase() })
-    }else{
+    } else {
         res.json({ "message": message })
     }
 })
