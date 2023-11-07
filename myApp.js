@@ -9,7 +9,7 @@ app.use(function (req, res, next) {
     next()
 })
 app.use('/public', express.static(path))
-app.get('/use',
+app.get('/now',
     function (res,req,next) {
         req.time = new Date().toString();
         next()
